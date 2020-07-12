@@ -13,7 +13,13 @@ router.get("/", (req, res) => {
   res.write("<h1>Hello from Express.js!</h1>");
   res.end();
 });
-router.post("/itemlist", cors(), (req, res) => {
+
+var corsOptions = {
+  origin: "https://react-ac-list.stackblitz.io",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+router.post("/itemlist", cors(corsOptions), (req, res) => {
   const list = req.body.list.map((l) => l.replace(" ", "-"));
   Promise.all(
     list.map((name) => {

@@ -19,6 +19,7 @@ var corsOptions = {
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
+router.options("/itemlist", cors(corsOptions)); // enable pre-flight request for DELETE request
 router.post("/itemlist", cors(corsOptions), (req, res) => {
   const list = req.body.list.map((l) => l.replace(" ", "-"));
   Promise.all(

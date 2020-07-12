@@ -21,7 +21,7 @@ var corsOptions = {
 
 router.options("/itemlist", cors(corsOptions)); // enable pre-flight request for DELETE request
 router.post("/itemlist", cors(corsOptions), (req, res) => {
-  const list = req.body.list.map((l) => l.replace(" ", "-"));
+  const list = req.body.list.map((l) => l.replace(/ /g, "-"));
   Promise.all(
     list.map((name) => {
       console.log(name);

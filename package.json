@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/neverendingqs/netlify-express#readme",
   "dependencies": {
+    "cors": "2.8.5",
     "isomorphic-fetch": "2.2.1"
   },
   "devDependencies": {

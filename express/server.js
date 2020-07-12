@@ -1,5 +1,6 @@
 "use strict";
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 const serverless = require("serverless-http");
 const app = express();
@@ -12,7 +13,7 @@ router.get("/", (req, res) => {
   res.write("<h1>Hello from Express.js!</h1>");
   res.end();
 });
-router.post("/itemlist", (req, res) => {
+router.post("/itemlist", cors(), (req, res) => {
   const list = req.body.list.map((l) => l.replace(" ", "-"));
   Promise.all(
     list.map((name) => {
